@@ -1,0 +1,33 @@
+import {test, expect} from '@playwright/test'
+
+test("Test GUI objects visibility", async ({page}) => {
+    await page.goto('https://www.saucedemo.com')
+    const loginField = page.locator('[data-test="username"]')
+    const passwordField = page.locator('[data-test="password"]')
+    const loginButton = page.locator('[data-test="login-button"]')
+    const pageTitle = page.getByText('Swag Labs')
+    const productsTitle = page.locator('[data-test="title"]')
+    const sortingButton = page.locator('[data-test="product-sort-container"]')
+    const burgerButton = page.getByRole('button', { name: 'Open Menu' })
+    const shoppingCartButton = page.locator('[data-test="shopping-cart-link"]')
+    const continueShoppingButton = page.locator('[data-test="continue-shopping"]')
+    const checkoutButton = page.locator('[data-test="checkout"]')
+    const QTYbutton = page.locator('[data-test="cart-quantity-label"]')
+    const descriptionButton = page.locator('[data-test="cart-desc-label"]')
+
+
+    await loginField.fill('standard_user')
+    await passwordField.fill('secret_sauce')
+    await loginButton.click()
+    await expect(pageTitle).toContainText('Swag Labs')
+    await expect(burgerButton).toBeVisible()
+    await expect(productsTitle).toBeVisible()
+    await expect(sortingButton).toBeVisible()
+    await expect(shoppingCartButton).toBeVisible()
+    await shoppingCartButton.click()
+    await expect(continueShoppingButton).toBeVisible()
+    await expect(checkoutButton).toBeVisible()
+    await expect(QTYbutton).toBeVisible()
+    await expect(descriptionButton).toBeVisible()
+    await page.waitForTimeout(5000)
+})
