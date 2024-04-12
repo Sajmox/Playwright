@@ -1,0 +1,4 @@
+/banking_website_testing/node_modules/**
+LOL.txt
+
+**/node_modules/**
