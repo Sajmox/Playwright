@@ -1,3 +1,4 @@
 /banking_website_testing/node_modules/
+/shopping_website_testing/node_modules/
 
 **/node_modules/**
