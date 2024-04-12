@@ -1,4 +1,3 @@
-/banking_website_testing/node_modules/**
-LOL.txt
+/banking_website_testing/node_modules/
 
 **/node_modules/**
